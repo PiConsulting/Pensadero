@@ -189,6 +189,8 @@ Login-AzAccount -Credential $creds -ServicePrincipal -TenantId $tenant_ID
 $smtpServer = "smtp.sendgrid.net"
 $smtpPort = '587'
 $destinatarios = @("mzurita@piconsulting.com.ar", "ibarrau@piconsulting.com.ar")
+$secpasswd = ConvertTo-SecureString "PasswordParaMail" -AsPlainText -Force
+$mycreds = New-Object System.Management.Automation.PSCredential ("UsuarioParaMail", $secpasswd)
 
 $mailParams = @{
     From = 'email@destinatario.com.ar'
