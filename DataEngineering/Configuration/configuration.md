@@ -171,3 +171,42 @@ Login-AzAccount -Credential $creds -ServicePrincipal -TenantId $tenant_ID
 
 ---
 
+
+**Enviar email con powershell**
+
+```
+- Uso: script que permite enviar un mail usando el protocolo SMTP.
+
+- Palabras clave: email, mail, automatico, powershell, SMTP, aviso, alertas.
+
+- Lenguaje: PowerShell.
+
+- Autor: Martin Zurita.
+
+```
+
+```
+$smtpServer = "smtp.sendgrid.net"
+$smtpPort = '587'
+$destinatarios = @("mzurita@piconsulting.com.ar", "ibarrau@piconsulting.com.ar")
+
+$mailParams = @{
+    From = 'email@destinatario.com.ar'
+    To = $destinatarios
+    SmtpServer = $smtpServer
+    Port = $smtpPort
+    Credential = $mycreds
+}
+
+$mailContent = @{
+            Subject = 'Algun subject para esto'
+            Body = "Todo el body del mail" 
+            }
+			
+Send-MailMessage @mailParams -UseSsl @mailContent
+
+
+```
+
+---
+
