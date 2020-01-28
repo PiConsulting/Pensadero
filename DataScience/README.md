@@ -1,2 +1,17 @@
 # Pensadero
-This is where we put useful code for our daily job with data.
+* Ciclo de Vida de DS
+    * EDA
+        * Visualizaciones
+        * Analiss
+    * Feature Engineering
+        * Tratamiento de nuelos
+        * Fechas <---
+    * Modelado
+        * Sistema de Recomendacion
+        * Series Temporales
+    * Deploy
+    * Utils
+        * MLFlow
+        * Env
+* Databricks
+
