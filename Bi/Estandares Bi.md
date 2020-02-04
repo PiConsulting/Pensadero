@@ -59,6 +59,10 @@ Por cualquier duda técnica de como realizar algo que nunca se vio disponible, c
 ### Mapa
 - Aumentar el tamaño de las burbujas por defecto
 
+### Slicer (filtros)
+- Permitir multiple seleccion sin control en caso de ser requerida.
+- Filtrar de orden descendiente los años o periodos.
+
 ### Idioma
 - Mantener siempre el idioma castellano, tanto para titulos como para meses
 
