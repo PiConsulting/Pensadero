@@ -15,7 +15,8 @@ Configuraciones de cosas tediosas que podamos automatizar.
 	
 	- Autor: Martin Zurita.
 	
-<pre><code>from azure.mgmt.datafactory import DataFactoryManagementClient
+``` python
+from azure.mgmt.datafactory import DataFactoryManagementClient
 from azure.common.credentials import UserPassCredentials #To login with user and pass, use this.
 from azure.common.credentials import ServicePrincipalCredentials #To login with service principal (appid and client secret) use this
 
@@ -37,7 +38,7 @@ params = {
 }
 
 adf_client.pipelines.create_run(rg_name, df_name, p_name, params)
-</code></pre>
+```
 
 ---------------------
 
@@ -52,7 +53,8 @@ adf_client.pipelines.create_run(rg_name, df_name, p_name, params)
 	- Autor: Iván Ingaramo.
 
 
-<pre><code>from cryptography.fernet import Fernet
+``` python
+from cryptography.fernet import Fernet
 
 # Ejecutar Paso a Paso la primera vez. Seguir las instrucciones.
 
@@ -103,7 +105,7 @@ def decrypt(nombreArchivoEncriptado):
 # Prueba
 
 usuario, password = decrypt("NOMBRE_ARCHIVO_ENCRIPTADO")
-</code></pre>
+```
 ---------------------
 
 **Crear conexión a una BD SQL Server ocultando usuario y password**
@@ -119,7 +121,7 @@ usuario, password = decrypt("NOMBRE_ARCHIVO_ENCRIPTADO")
 
 ```
 
-```
+``` python
 # Se debe importar el script de Encriptar y Desencriptar con Fernet, el cual se encuentra en este mismo archivo Configuration.md
 import decrypt as de
 import pandas as pd
@@ -155,7 +157,7 @@ def connect(nombreBD):
 
 ```
 
-```
+``` bash
 $service_principal_key = "LLENAR"
 $service_principal_appID = "LLENAR"
 #Tenant id se consigue en azure yendo a Azure Active Directory, 
@@ -185,7 +187,7 @@ Login-AzAccount -Credential $creds -ServicePrincipal -TenantId $tenant_ID
 
 ```
 
-```
+``` bash
 $smtpServer = "smtp.sendgrid.net"
 $smtpPort = '587'
 $destinatarios = @("mzurita@piconsulting.com.ar", "ibarrau@piconsulting.com.ar")
