@@ -3,13 +3,13 @@ This is where we put useful code for our daily job with data.
 
 Data Science folder is structured in the following way
 * Data Science Life Cycle
-  * EDA
+  * Exploratory Data Analysis (EDA)
     * Visualizations
     * Analysis
-  * Feature Engineering
+  * Feature Engineering (FE)
     * Handlig Null Data
-    * Dates <---
-  * Modells
+    * Dates 
+  * Modeling
     * Recommendation systems
     * Time Series
   * Deployment
