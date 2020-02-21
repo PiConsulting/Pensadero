@@ -7,7 +7,7 @@ Data Science folder is structured in the following way
     * Visualizations
     * Analysis
   * Feature Engineering (FE)
-    * Handlig Null Data
+    * Handling Null Data
     * Dates 
   * Modeling
     * Recommendation systems
