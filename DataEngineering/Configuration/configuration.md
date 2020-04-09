@@ -213,4 +213,43 @@ Send-MailMessage @mailParams -UseSsl @mailContent
 ```
 
 ---
+**Configurar conexión de Databricks con Azure Data Lake Gen 2**
+```
+- Uso: script que permite montar el Data lake gen 2. Se debe previamente crear un key vault scope en Databricks, el sp debe tener permisos de lectura sobre el Data Lake "Storage Blob Data Reader" 
+- Palabras clave: keyvaul, Data Lake, Databricks, mount, montar.
+- Lenguaje: Python 
+ - Autor: Matías Deheza.
+```
+``` python
+# Variable declarations. These will be accessible by any calling notebook.
+keyVaultScope = "key-vault-secrets"
+adlsGen2AccountName = dbutils.secrets.get(keyVaultScope, "ADLS-Gen2-Account-Name")
+fileSystemName = "contosoauto"
+abfsUri = "abfss://" + fileSystemName + "@" + adlsGen2AccountName + ".dfs.core.windows.net/"
+
+
+# Add the required configuration settings for OAuth access to your ADLS Gen2 account.
+configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": dbutils.secrets.get(keyVaultScope, "ContosoAuto-SP-Client-ID"),
+           "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(keyVaultScope, "ContosoAuto-SP-Client-Key"),
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/" + dbutils.secrets.get(keyVaultScope, "Azure-Tenant-ID") + "/oauth2/token"}
+
+
+# Before you can access the hierarchical namespace in your ADLS Gen2 account, you must initialize a filesystem. To accomplish this, we will use the `fs.azure.createRemoteFileSystemDuringInitialization` configuration option to allow the filesystem to be created during our mount operation. We will set this value to `true` immediately before the accessing the ADLS Gen2 filesystem, and then back to `false` following the command.
+spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+
+
+# Mount the ADLS Gen2 filesystem.
+dbutils.fs.mount(
+  source = abfsUri,
+  mount_point = "/mnt/" + fileSystemName,
+  extra_configs = configs)
+
+
+# Disable creation of the filesystem during initialization.
+spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+
+```
+---
 
