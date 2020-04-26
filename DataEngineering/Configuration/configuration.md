@@ -252,4 +252,25 @@ spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
 ```
 ---
+**Instalar chromium en Databricks para utilizar Selenium**
+```
+- Uso: script que instala el driver de chromium para luego poder ejecutar Selenium. Este codigo se ejecuta por unica vez en notebook de databricks y luego en el init script del cluster se debe indicar el nombre del script (chromedriver_linux64-install.sh) para que se ejecute cada vez que el cluster se encienda.
+- Palabras clave: Selenium, Databricks, chromium, driver
+- Lenguaje: Python 
+ - Autor: Julian Biltes
+```
+``` python
+script = """
+  wget  https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -O /tmp/chromedriver_linux64.zip
+  mkdir /tmp/chromedriver
+  unzip /tmp/chromedriver_linux64.zip -d /tmp/chromedriver/
+  sudo add-apt-repository ppa:canonical-chromium-builds/stage
+  /usr/bin/yes | sudo apt update
+  /usr/bin/yes | sudo apt install chromium-browser
+"""
 
+dbutils.fs.mkdirs("/databricks/webdriver")
+dbutils.fs.put("/databricks/webdriver/chromedriver_linux64-install.sh", script, True)
+
+```
+---
