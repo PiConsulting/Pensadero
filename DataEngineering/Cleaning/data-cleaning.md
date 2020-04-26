@@ -4,8 +4,8 @@ Repository of code snippets for usual data engineering stuff.
 **Limpieza de datos en SELECT (Oracle)**
 ```
 - Uso: Limpieza de datos en el select de un query, ideal para cuando el output es un CSV y algunos caracteres pueden interferir en la posterior lectura del CSV.
-- Palabras clave: query, oracle, Datafactory
-- Lenguaje: PL/SQL (Oracle SQL)
+- Palabras clave: query, oracle, datafactory, csv
+- Lenguaje: PL/SQL (Oracle SQL), Python
  - Autor: Julian Biltes 
 ```
 ``` sql
@@ -20,13 +20,8 @@ WHERE rownum <= 10
 --Consideraciones: No aplicar para campos datetime, int ni float debido a que convierte a varchar y luego aplica las funciones, en esta conversión puede alterar el formato o generar resultados no deseados.
 
 ``` 
----
-**Script generador query para limpieza de datos en SELECT (Oracle)**
 ```
-- Uso: Siguiendo el mismo query anterior, se presenta un script en python
-- Palabras clave: SQL, query, Datafactory, oracle
-- Lenguaje: Python
- - Autor: Julian Biltes 
+- Script en python para generar las queries
 ```
 ``` python
 fields = ['columnName1', 'columnName2','columnName3']
