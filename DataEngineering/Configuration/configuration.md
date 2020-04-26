@@ -328,3 +328,80 @@ dbutils.fs.mkdirs("/databricks/rstudio")
 dbutils.fs.put("/databricks/rstudio/rstudio-install.sh", script, True)
 ```
 ---
+**Template para Azure Function (compatible con Datafactory)**
+```
+- Uso: Cuando se precisa crear una API de Azure Function llamable desde datafactory surgen algunos errores por el response, a continuacion se comparte un template 100% funcional. En este existe la function "write_http_response" que retorna un json con los valores necesarios para que datafactory lo procese sin errores.
+- Palabras clave: Azure Function, API, Datafactory
+- Lenguaje: Python 
+ - Autor: Julian Biltes 
+```
+``` python
+import logging
+import os
+import azure.functions as func
+import json
+
+#Function for construct response json, necessary if the API is called from Azure Data Factory
+def write_http_response(status, body_dict):
+    return_dict = {
+        "status": status,
+        "body": json.dumps(body_dict),
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+    return json.dumps(return_dict)
+
+#Main API
+def main(req: func.HttpRequest):
+    logging.info('Python API function processed a request.')
+
+    #Dict for build response
+    res_body  = {}
+    
+    #Enviroment Variables
+    EXAMPLE_VAR_ENVIROMENT = os.environ.get('EXAMPLE_ENVIROMENT')
+
+    #get values with method GET
+    called_from = req.params.get('called_from')
+    example_param = req.params.get('example_param')
+
+    #get values with method POST
+    if not example_param:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            try:
+                called_from = req_body.get('called_from')
+                example_param = req_body.get('example_param')
+                if not example_param or not called_from or not EXAMPLE_VAR_ENVIROMENT:
+                    raise Exception('Una de las variables de entorno es nulo')
+            except Exception as e:
+                res_body['error'] = str(e)
+                res_body['comment'] = "Error en request o variables de entorno"
+                return write_http_response(400, res_body)
+
+    #Logging called from
+    logging.info('Called from: {}'.format(called_from))
+
+    try:
+        #DESARROLLO DE API ACA
+
+        #RESPONSE OK
+        #Build response body
+        res_body['comment'] = "API executed OK"
+        res_body['example'] = "mensaje generico"
+        return write_http_response(200, res_body)
+    #Error
+    except Exception as e:
+        #RESPONSE ERROR
+        #Build response body
+        res_body["comment"] = "API executed Failure. Check APIs, accounts/permissions and creds"
+        res_body["exception"] = str(e)
+        res_body['example'] = "mensaje generico"
+        return write_http_response(400, res_body)
+
+```
+---
