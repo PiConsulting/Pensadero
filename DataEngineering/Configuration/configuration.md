@@ -274,3 +274,57 @@ dbutils.fs.put("/databricks/webdriver/chromedriver_linux64-install.sh", script, 
 
 ```
 ---
+**Instalar RStudio en Databricks**
+```
+- Uso: script que instala el RStudio en un cluster de Databricks. Este codigo se ejecuta por unica vez en notebook de databricks y luego en el init script del cluster se debe indicar el nombre del script (rstudio-install.sh) para que se ejecute cada vez que el cluster se encienda.
+- Palabras clave: RStudio, Databricks, R
+- Lenguaje: Python 
+ - Autor: Julian Biltes (https://docs.databricks.com/spark/latest/sparkr/rstudio.html)
+```
+``` python
+script = """#!/bin/bash
+
+set -euxo pipefail
+
+if [[ $DB_IS_DRIVER = "TRUE" ]]; then
+  apt-get update
+  apt-get install -y gdebi-core
+  cd /tmp
+  # You can find new releases at https://rstudio.com/products/rstudio/download-server/debian-ubuntu/.
+  wget https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5001-amd64.deb
+  sudo gdebi -n rstudio-server-1.2.5001-amd64.deb
+  rstudio-server restart || true
+fi
+"""
+
+dbutils.fs.mkdirs("/databricks/rstudio")
+dbutils.fs.put("/databricks/rstudio/rstudio-install.sh", script, True)
+```
+---
+**Instalar RStudio en Databricks**
+```
+- Uso: script que instala el RStudio en un cluster de Databricks. Este codigo se ejecuta por unica vez en notebook de databricks y luego en el init script del cluster se debe indicar el nombre del script (rstudio-install.sh) para que se ejecute cada vez que el cluster se encienda.
+- Palabras clave: RStudio, Databricks, R
+- Lenguaje: Python 
+ - Autor: Julian Biltes (https://docs.databricks.com/spark/latest/sparkr/rstudio.html)
+```
+``` python
+script = """#!/bin/bash
+
+set -euxo pipefail
+
+if [[ $DB_IS_DRIVER = "TRUE" ]]; then
+  apt-get update
+  apt-get install -y gdebi-core
+  cd /tmp
+  # You can find new releases at https://rstudio.com/products/rstudio/download-server/debian-ubuntu/.
+  wget https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.5001-amd64.deb
+  sudo gdebi -n rstudio-server-1.2.5001-amd64.deb
+  rstudio-server restart || true
+fi
+"""
+
+dbutils.fs.mkdirs("/databricks/rstudio")
+dbutils.fs.put("/databricks/rstudio/rstudio-install.sh", script, True)
+```
+---
