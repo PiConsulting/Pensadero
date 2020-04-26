@@ -489,3 +489,34 @@ def activity_log(run_id, start_time, end_time, status='Failed'):
 
 
 ```
+**Script DDL para polybase en Azure Data Warehouse/Synapse Analytics Service**
+```
+- Uso: Crear los objetos para polybase con la configuracion recomendada (y testeada!)
+- Palabras clave: Azure Data Warehouse, Synapse Analytics Service, polybase, sql-server
+- Lenguaje: SQL 
+ - Autor: Julian Biltes 
+```
+``` SQL
+
+CREATE EXTERNAL DATA SOURCE [adl] WITH (TYPE = HADOOP, LOCATION = N'abfss://[llenar, endpoint datalake]', CREDENTIAL = [DataLakeV2Cred])
+GO
+
+CREATE EXTERNAL FILE FORMAT [CsvFileFormat] WITH (FORMAT_TYPE = DELIMITEDTEXT, FORMAT_OPTIONS (FIELD_TERMINATOR = N'|', STRING_DELIMITER = N'"', FIRST_ROW = 2, USE_TYPE_DEFAULT = True))
+GO
+
+CREATE SCHEMA ext
+GO
+CREATE EXTERNAL TABLE [ext].[TABLE_NAME]
+(
+	[COLUMN_NAME1] [numeric](15, 0) NOT NULL,
+	[COLUMN_NAME2] [varchar](8) NOT NULL,
+	[COLUMN_NAME3] [int] NOT NULL,
+	[COLUMN_NAME4] [float] NULL,
+	[COLUMN_NAME5] [datetime2](7) NULL
+)
+WITH (DATA_SOURCE = [adl],LOCATION = N'raw-data/example-path/',FILE_FORMAT = [CsvFileFormat],REJECT_TYPE = VALUE,REJECT_VALUE = 0)
+
+GO
+SELECT TOP 10 * FROM [ext].[TABLE_NAME]
+
+```
