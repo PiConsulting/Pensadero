@@ -19,7 +19,7 @@ Nuestra funcion va a recibir el parametro language (Spanish, English, Chinese, G
 
 En este caso hacemos uso de una pagina en Wikipedia [WikipediaLanguageLocalisation]:
 
-[![N|Solid](https://gdurl.com/wu0Z)](https://gdurl.com/wu0Z)
+[![Wikipedia Source](..master/Bi/Media/GetDayName_1.png)
 
 Nos conectamos a esta pagina de Wikipedia mediante el conector web en Power Query y luego de aplicar unos simples pasos en Power Query nos quedamos con la informacion que necesitamos:
 
