@@ -19,11 +19,11 @@ Nuestra funcion va a recibir el parametro language (Spanish, English, Chinese, G
 
 En este caso hacemos uso de una pagina en Wikipedia [WikipediaLanguageLocalisation]:
 
-![Wikipedia Source](../master/Bi/Media/GetDayName_1.png)
+[![Wikipedia Source](https://gdurl.com/wu0Z)](https://gdurl.com/wu0Z)
 
 Nos conectamos a esta pagina de Wikipedia mediante el conector web en Power Query y luego de aplicar unos simples pasos en Power Query nos quedamos con la informacion que necesitamos:
 
-[![N|Solid](https://gdurl.com/cLKJ)](https://gdurl.com/cLKJ)
+[![Power Query Steps](https://gdurl.com/cLKJ)](https://gdurl.com/cLKJ)
 
 De esta manera, esta tabla nos va a servir para que que busquemos el locale necesario para el idioma que queramos usar.
 Luego de agregar una columna adicional y un filtro, procedemos a convertir el query en una funcion y ya podemos usarlo.
@@ -55,18 +55,18 @@ in
 
 Para comenzar a usar esta funcion, solo te ubicas en la tabla donde tengas tu fecha, agregas una columna personalizada e invocas a la función que acabamos de crear (en mi caso *GetDayName*) indicandole el campo donde esta tu fecha y escribiendo el idioma en que quieres visualizar el Nombre del Dia:
 
-[![N|Solid](https://gdurl.com/PhAU)](https://gdurl.com/PhAU)
+[![Power Query Custom Column](https://gdurl.com/PhAU)](https://gdurl.com/PhAU)
 
 En nuestra función el parametro de idioma *language* lo hicimos **Case Insensitive**, por lo que no tenemos que preocuparnos si hay letras mayusculas o minusculas al escribirlo.
 
 Podemos aplicarlo utilizando el idioma que necesitemos, al final nos va a mostrar el nombre del dia en el idioma elegido:
 
-[![N|Solid](https://gdurl.com/vfiK)](https://gdurl.com/vfiK)
+[![Power Query Result](https://gdurl.com/vfiK)](https://gdurl.com/vfiK)
 
 Y Pum! tenemos los nombres de dias generados automáticamente de cualquier campo fecha en el idioma que se necesite.
 #
 #
-[![N|Solid](https://gdurl.com/litC)](https://gdurl.com/litC)
+[![Gian Carlo Poggi](https://gdurl.com/litC)](https://gdurl.com/litC)
 
 [//]: # 
    [WikipediaLanguageLocalisation]: <https://en.wikipedia.org/wiki/Language_localisation>
