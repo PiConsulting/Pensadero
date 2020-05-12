@@ -118,7 +118,7 @@ CALCULATE (
 - SAMEPERIODLASTYEAR (Dates) devuelve misma fecha del año anterior. Va fila por fila viendo la fecha, si es 20/4/2018 busca el valor para 20/4/2017.
 - ENDOFMONTH (Date) devuelve una fecha con el último día del mes en el que estoy parado. Diferencia entre 29 30 y 31.
 - EOMONTH (Dates, number) devuelve el último día del mes de la última fecha de las pasadas por parametros. El segundo parametro es para que devuelve N meses más o menos del último.
-- DATESINPERIOD (<dates>,<start_date>,<number_of_intervals>,<interval>) Devuelve una tabla que contiene una columna de fechas que empieza por start_date y sigue hasta el valor de number_of_intervals especificado.
+- DATESINPERIOD (dates,start_date,number_of_intervals,interval) Devuelve una tabla que contiene una columna de fechas que empieza por start_date y sigue hasta el valor de number_of_intervals especificado.
 - ***Días habiles*** Proximamente... Es necesario contar con una tabla de domingos y feriados o de días hábiles para modelar esta solución.
 
 ---
