@@ -203,3 +203,36 @@ def get_type_value(value):
     return [str(str), len(str(value))]
 ```
 ---
+**Lectura desde el datalake o desde el datawarehouse**
+```
+- Uso: Obtener datos de una tabla(adw) o de un parquet(blob storage)
+- Palabras clave: Leer, Lectura, datalake, datawarehouse, parquet
+- Lenguaje: Python (Spark)
+- Autor: Efrain Diaz
+```
+```
+#Leer desde el storage: Datalake --> Dataframe
+df = spark.read.parquet(path) ## path = "/mnt/raw-data/..."
+
+#Leer desde el adw: Datawarehouse --> Dataframe
+## Default setting:
+jdbcHostname = "serversqls21-analitica.database.windows.net"
+jdbcDatabase = "warehouseanalitica"
+jdbcUrl = "jdbc:sqlserver://{0};database={1}".format(jdbcHostname, jdbcDatabase)
+spark.conf.set("fs.azure.account.key.datalakeanalitica.blob.core.windows.net", "nZBTj4zDX2m6mAkV7Ya0ntk4H7DrnepqKEbKka11hljaepvX54dYNClnxwRjcR01CBzh4U4G2cXZwp5+ZI3vhA==")
+
+## Custom setting:
+username = 'analiticauser'
+password = 'Pa$$w0rd1'
+schema_table_final = 'esquema.tabla'
+
+df_tabla_adw = spark.read \
+  .format("com.databricks.spark.sqldw") \
+  .option("url", jdbcUrl) \
+  .option("tempDir", "wasbs://raw-data@datalakeanalitica.blob.core.windows.net/DIP/GDA/.../temp") \
+  .option("forwardSparkAzureStorageCredentials", "true") \ ## Polybase
+  .option("user", username) \
+  .option("password", password) \
+  .option("dbTable", schema_table_final) \
+  .load()
+```  
