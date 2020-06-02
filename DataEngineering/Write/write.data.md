@@ -76,3 +76,46 @@ writeConfig = {
 AsApplied.write.format("com.microsoft.azure.cosmosdb.spark").mode("append").options(**writeConfig).save()
 
 ```
+**Volcar datos en ADL y ADW (Spark y Python)**
+
+	- Uso: Escribir datos en un datalake o en un datawarehouse
+
+	- Palabras clave: Databricks, Spark, python, escribir, overwrite, append, datalake, datawarehouse
+
+	- Lenguaje: Python, Spark.
+	
+	- Autor: Efrain Diaz
+
+PYTHON 
+``` 
+#Escribir en el storage: Datalake <-- Dataframe
+(df
+ .coalesce(1) ## Sirve para que solo cree una particion, investigar acerca de particiones de parquet's
+ .write
+ .parquet(path, mode="modo") ## path = "mnt/trusted-data/..."  modo = "overwrite" o "append", segun necesidad
+)
+
+#Escribir en el adw: Datawarehouse <-- Dataframe
+## Default setting:
+jdbcHostname = "serversqls21-analitica.database.windows.net"
+jdbcDatabase = "warehouseanalitica"
+jdbcUrl = "jdbc:sqlserver://{0};database={1}".format(jdbcHostname, jdbcDatabase)
+spark.conf.set("fs.azure.account.key.datalakeanalitica.blob.core.windows.net","nZBTj4zDX2m6mAkV7Ya0ntk4H7DrnepqKEbKka11hljaepvX54dYNClnxwRjcR01CBzh4U4G2cXZwp5+ZI3vhA==")
+
+## Custom setting:
+username = 'analiticauser'
+password = 'Pa$$w0rd1'
+schema_table_final = 'esquema.tabla'
+
+(df_hoy_subset.write
+ .mode("overwrite") ## Overwrite sobreescribe, Append inserta al final de todo
+ .format("com.databricks.spark.sqldw")
+ .option("url", jdbcUrl)
+ .option("forwardSparkAzureStorageCredentials", "true") ## Polybase
+ .option("tempDir", "wasbs://raw-data@datalakeanalitica.blob.core.windows.net/DIP/GDA/.../temp")
+ .option("user", username)
+ .option("password", password)
+ .option("dbTable", schema_table_final) ## ó .option("query", "select <fields> from <table> where <conditions>")
+ .option("maxStrLength", "3500") ## para forzar el maximo length de los campos string
+ .save()
+)
