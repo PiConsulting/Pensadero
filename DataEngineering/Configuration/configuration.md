@@ -531,51 +531,9 @@ SELECT TOP 10 * FROM [ext].[TABLE_NAME]
 	- Lenguaje: Python.
 	
 	- Autor: Efrain Diaz.
-
-# https://bi64pro.com/using-parameters-with-azure-data-factory-and-databricks/?fbclid=IwAR2EVxiDZvrjr7CCZaf7RUR1jILcNS91LbRvfVSKwzf-HnY2DoLv44TEfvc
+	
+	- Source: https://bi64pro.com/using-parameters-with-azure-data-factory-and-databricks/?fbclid=IwAR2EVxiDZvrjr7CCZaf7RUR1jILcNS91LbRvfVSKwzf-HnY2DoLv44TEfvc
+	
 tabla = getArgument("p_table")
 fecha = getArgument("p_datetime")
 file = tabla+"_"+fecha+".parquet"
-
-
------------------
-**Comandos útiles databricks**
-
-	- Uso: comandos varios utilizados para tareas de ETL
-
-	- Palabras clave: Data Bricks, Python, Pyspark.
-
-	- Lenguaje: Python.
-	
-	- Autor: Efrain Diaz.
-	
-#Comandos útiles
-
-## Ver listado de archivos de un directorio del datalake
-%fs ls "dbfs:/mnt/raw-data/.../..."
-
-## Ver un dataframe en forma de celdas, bonito, arreglado
-display(df) 
-
-## Ver un dataframe crudo, con sus verdaderos datatype
-df.show()   
-
-## Crear una vista para luego manejarla con el comando %sql y querys de DDBB
-df.createOrReplaceTempView("df_view")  
-
-%sql
-select count(1) from df_view
-
-## Crear un dataframe apartir de una vista
-df_subset = spark.sql("SELECT * from df_view ORDER BY ID") 
-
-## Borrar una columna de un dataframe
-df = df.drop("<column>")
-
-## Ver esquema de un dataframe
-df.printSchema()
-df.dtypes()
-
-## Unir datasets
-df_3 = df_1.union(df_2)
-
