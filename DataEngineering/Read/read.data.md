@@ -219,11 +219,11 @@ df = spark.read.parquet(path) ## path = "/mnt/raw-data/..."
 jdbcHostname = "serversqls21-analitica.database.windows.net"
 jdbcDatabase = "warehouseanalitica"
 jdbcUrl = "jdbc:sqlserver://{0};database={1}".format(jdbcHostname, jdbcDatabase)
-spark.conf.set("fs.azure.account.key.datalakeanalitica.blob.core.windows.net", "nZBTj4zDX2m6mAkV7Ya0ntk4H7DrnepqKEbKka11hljaepvX54dYNClnxwRjcR01CBzh4U4G2cXZwp5+ZI3vhA==")
+spark.conf.set("fs.azure.account.key.datalakeanalitica.blob.core.windows.net", "nZBTj4zDX2m6mAkV7Ya0ntk4H7DrnhA==")
 
 ## Custom setting:
 username = 'analiticauser'
-password = 'Pa$$w0rd1'
+password = 'Pa1'
 schema_table_final = 'esquema.tabla'
 
 df_tabla_adw = spark.read \
