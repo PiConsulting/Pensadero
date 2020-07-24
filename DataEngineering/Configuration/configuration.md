@@ -533,7 +533,89 @@ SELECT TOP 10 * FROM [ext].[TABLE_NAME]
 	- Autor: Efrain Diaz.
 	
 	- Source: https://bi64pro.com/using-parameters-with-azure-data-factory-and-databricks/?fbclid=IwAR2EVxiDZvrjr7CCZaf7RUR1jILcNS91LbRvfVSKwzf-HnY2DoLv44TEfvc
-	
+
+``` python	
 tabla = getArgument("p_table")
 fecha = getArgument("p_datetime")
 file = tabla+"_"+fecha+".parquet"
+```
+
+
+-----------------
+**Count de todas las tablas del Warehouse (Synapse)**
+
+	- Uso: una query que devuelve el count de las filas que tiene cada tabla.
+
+	- Palabras clave: T-SQL, Azure, Synapse, Tables.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita.
+	
+``` sql
+select schema_name(tab.schema_id) + '.' + tab.name as [table],
+       sum(part.rows) as [rows]
+   from sys.tables as tab
+        inner join sys.partitions as part
+            on tab.object_id = part.object_id
+where part.index_id IN (1, 0) -- 0 - table without PK, 1 table with PK
+group by schema_name(tab.schema_id) + '.' + tab.name
+order by sum(part.rows) desc
+```
+---------------------
+
+**Distribucion en 60 instancias de Warehouse (Synapse)**
+
+	- Uso: una query que nos dice como se distribuyen las filas para una tabla particular. Util para saber si esta causando un cuello de botella.
+
+	- Palabras clave: T-SQL, Azure, Synapse, Tables.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita.
+
+``` sql
+DBCC PDW_SHOWSPACEUSED("schema.tabla")
+```
+
+---------------------
+
+**Habilitar login por AD en Warehouse (Synapse)**
+
+	- Uso: con este procedimiento se puede configurar usuarios de Active Directory (AD) para que puedan loguear sin la necesidad de tener un usuario de base de datos. Se debe utilizar la opcion "Azure Active Directory - Password".
+
+	- Palabras clave: T-SQL, Azure, Synapse, Permisos.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita.
+
+``` sql
+Se hace basicamente en 2 pasos:
+    1. Desde el portal, setear para el server de SQL un Active Directory Admin.
+    2. Loguear a la BD con un usuario que tenga permisos de ALTER ANY USER y ejecutar la siguiente consulta:
+    
+   CREATE USER [user@dominio.com.ar] FROM EXTERNAL PROVIDER;
+
+El usuario tambien puede ser reemplazado por un grupo de AD, lo cual facilita el control de permisos.
+```
+
+---------------------
+
+**Habilitar firewall por IP en Azure SQL**
+
+	- Uso: con esto logramos no depender del firewall del server, que habilita acceso a todas las bases de datos dentro de el. Con esto podemos habilitar una ip o un rango de ips solo para una BD dentro del server.
+
+	- Palabras clave: T-SQL, Azure, Synapse, Permisos.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita.
+
+``` sql
+EXECUTE sp_set_database_firewall_rule N'Nombre Regla', '0.0.0.0', '0.0.0.0';  
+
+La primera ip es la inicial, y la segunda es la del final del rango. Si se quiere habilitar una unica IP, escribirla como inicial y final.
+```
+
+---------------------
