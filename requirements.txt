@@ -8,3 +8,5 @@ seaborn==0.10.1
 statsmodels==0.11.1
 scikit-learn==0.23.1
 jupyter==1.0.0
+pingouin==0.3.7
+scikit-posthocs==0.6.5
