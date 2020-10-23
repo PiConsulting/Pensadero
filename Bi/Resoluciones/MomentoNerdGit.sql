@@ -4,4 +4,4 @@
 ----------------------------------------- */
 
 SELECT * FROM Tabla1
-WHERE Columna1 IN ('Activo', 'Iniciado')
+WHERE Columna1 IN ('Activo', 'Iniciado', 'Cerrado')
