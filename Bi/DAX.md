@@ -74,6 +74,16 @@ CALCULATE(
 LastMonth =  Date(YEAR(EDATE(today(),-1)),MONTH(EDATE(today(),-2)),1)
 ```
 
+**Valor agregado de una columna en su última fecha**
+```
+Valor de ultima fecha = 
+CALCULATE (
+    SUM ( 'Table'[Columna] ),
+    LASTDATE ( 'TablaFecha'[Fecha] )
+)
+```
+
+
 **Acumuladas to-date. Total or Date**
 
 - TOTALYTD or DATESYTD: acumulado (cuatrimestre, mes, dia) anual de valores que se reinicia por año.
