@@ -13,4 +13,4 @@ Cada mini proyecto deberia estar en un carpeta distinta, idealmente con un READM
 
 
 
-updated: lun 26 oct 2020 10:15:11 -03
+updated: lun 26 oct 2020 12:00:12 -03
