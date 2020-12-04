@@ -62,13 +62,25 @@ CALCULATE(
 )
 ```
 
+**Obtener total independiente del calculo de filas**
 
-**alsfalksfjaksd**
-
-texto
-explicacion
+Vamos a aprovecharnos de la funcion HASONEVALUE para calcular un valor Total que es diferente al que se ejecuta en cada fila.
+En este ejemplo la variable __rows retornara una suma y la variable __avg retornara el promedio de esa suma. 
+La idea es que para cada fila se haga un calculo y que para el total de la fila o matriz se muestre un calcuo diferente al de las filas.
+Esto se puede combinar con cualquier tipo de funcion y calculo, incluso con calculos que retornan tipos distintos de datos.
+HASONEVALUE: Returns true when there’s only one value in the specified column.
 ```
-sum
+Example:
+VAR __rows = SUM(Table[Column1])
+VAR __avg = DIVIDE(__rows, COUNTROWS(VALUES(Table[Column2])) )
+
+RETURN 
+IF( 
+    HASONEVALUE(Table [Column2]) && 
+    NOT(ISBLANK( __rows )), 
+    __rows,
+    __avg
+) 
 ```
 
 ---
