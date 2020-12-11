@@ -1,0 +1,15 @@
+FROM python:3.8-alpine
+# MAINTAINER CRISTIAN_CONTRERA <cristiancontrera95@gmail.com>
+
+WORKDIR /app
+
+RUN pip install --upgrade pip && pip install --no-cache-dir sklearn
+
+### Uncomment for usage
+# COPY requirements.txt ./
+# RUN pip install --no-cache-dir -r requirements.txt
+# COPY ./src/*.py ./
+
+# EXPOSE 5000
+
+# CMD ['python', 'main.py']
