@@ -1,0 +1,19 @@
+Filtro = 
+VAR _Table =
+    SUMMARIZE (
+        Table,
+        Table[Column]
+        "@VirtualColumn", [Measure]
+    )
+VAR _MaxValor =
+    MAXX (_Table, [@VirtualColumn] )
+RETURN
+    GENERATESERIES ( 1, _Max, 1 )
+
+
+Filtro Valor = 
+VAR _Min =
+    MIN ( Filtro[Value] )
+VAR _ValorActual = [Measure]
+RETURN
+    IF ( _ValorActual = _MinValor, 1, 0 )
