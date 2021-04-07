@@ -4,8 +4,8 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 try:
 
-    #TEMPLATE_ID = 'd-76a5f553c9974524a65d9e744822b897' --> key del template dinamico hecho con dynamic templates por la pagina del sendgrid
-    API_KEY = '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' # --> api key de la subcripcion del sendgrid
+    #TEMPLATE_ID = 'xxxxxxxxxxxxxxxxx' --> key del template dinamico hecho con dynamic templates por la pagina del sendgrid
+    API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' # --> api key de la subcripcion del sendgrid
     mail_user = 'jsoaje@piconsulting.com.ar' # usuario o lista de usuarios a enviar mail
     message = Mail(
         from_email= , # --> usuario que envia el mail
