@@ -1,0 +1,8 @@
+> library(olapR)
+> library(janitor)
+> library(tidyverse)
+> cnnstr <- "DataSource = (local); provider=MSOLAP ; initial catalog =PruebaRPython"
+> ocs <- OlapConnection(cnnstr)
+> dax_query <- "Evaluate VALUES(DimCustomer[CommuteDistance])"
+> df_dax <- execute2D(ocs,dax_query)
+> view(df_dax)
