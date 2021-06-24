@@ -6,7 +6,7 @@ Algunos dockerfiles listos para usar con diferentes librerias, basados en linux
   Siempre que se pueda se recomienda usar esta distro ya que es muy liviana ~80Mb
 
 
-# How to use
+# <a name="how_to_use"></a>How to use
 Se necesita una repositorio de dockers:
 - [DockerHub](https://hub.docker.com/):
   Repositorio estandar que cualquiera puede usar, es donde estan las imagenes publicas comunes.
@@ -32,11 +32,15 @@ docker tag mi-docker:latest <server.azurecr.io>/mi-docker:latest
 docker push <server.azurecr.io>/mi-docker:latest
 ```
 
-### Usar nuestro docker en Data-Bricks
+# Usar nuestros docker en Data-Bricks
 
 Podemos usar nuestro docker como base para el cluster de data bricks, ***esto nos permite instalar programas, librerias y drivers 
 en la imagen docker y no tener que usar un init_script cada vez que el cluster inicia***, para esto:
 
+- Vamos a usar el Docker en la carpeta de [DataBricks](https://github.com/PiConsulting/Pensadero/tree/master/DataScience/data_science_life_cycle/4_deployment/Dockers/DataBricks)  (este ejemplo es para python)
+- Usamos como Docker file el archivo `python.Dockerfile` 
+- Podemos agregar o descomentar las librerias que queremos que esten instaladas por defecto en data bricks editando el archivo `python-requirements.txt`.
+- Armamos y subimos nuestra imagen docker como indica la seccion anterior ([**How to use**](#how_to_use))
 - Habilitamos los [Azure Container Services](https://docs.microsoft.com/es-es/azure/databricks/administration-guide/clusters/container-services)
 - Seleccionamos nuestro docker como en la siguiente imagen   
 ![image](https://docs.microsoft.com/es-es/azure/databricks/_static/images/clusters/custom-container-azure.png)  
