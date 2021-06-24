@@ -38,10 +38,10 @@ Podemos usar nuestro docker como base para el cluster de data bricks, ***esto no
 en la imagen docker y no tener que usar un init_script cada vez que el cluster inicia***, para esto:
 
 - Habilitamos los [Azure Container Services](https://docs.microsoft.com/es-es/azure/databricks/administration-guide/clusters/container-services)
-- Seleccionamos nuestro docker como en la siguiente imagen 
-![image](https://docs.microsoft.com/es-es/azure/databricks/_static/images/clusters/custom-container-azure.png)
+- Seleccionamos nuestro docker como en la siguiente imagen   
+![image](https://docs.microsoft.com/es-es/azure/databricks/_static/images/clusters/custom-container-azure.png)  
   En authentication seleccionamos user and pass y ponemos las mismas credenciales que nos da 
   el ACR (las que usamos para loguearnos con docker), y tendremos nuestro cluster con una imagen personalizada.
   
-
+  
 Good luck and bye!
