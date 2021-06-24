@@ -1,0 +1,56 @@
+pydantic
+python-dotenv
+# requests
+xlrd
+
+#### Data Science common
+# pandas
+# geopandas
+# scikit-learn
+# h2o
+# imbalanced-learn
+# catboost
+# scipy
+# lightgbm
+# xgboost
+# matplotlib
+# seaborn
+# plotly
+# plotly-express
+# graphviz
+
+#### Deep Learning
+# nltk
+# Pillow
+# imutils
+# opencv-python
+# tensorflow
+# keras
+# torch
+
+#### Data Bases
+# pymongo
+# SQLAlchemy
+# pyodbc
+
+#### google Earth
+# geetools
+# earthengine-api==0.1.230
+# google-api-python-client==1.10.0
+# google-auth-httplib2==0.0.4
+# google-auth-oauthlib==0.4.1
+
+#### AWS
+# boto3
+
+#### Azure
+# azure-storage-blob
+# azure-identity
+# azure-mgmt-compute
+
+#### Tracking
+mlflow
+
+#### Scrapy
+# beautifulsoup4
+# scrapy

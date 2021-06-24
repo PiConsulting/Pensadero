@@ -3,12 +3,11 @@ FROM python:3.8-alpine
 
 WORKDIR /app
 
-RUN pip install --upgrade pip && pip install --no-cache-dir sklearn
+COPY requirements.txt ./
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 ### Uncomment for usage
-# COPY requirements.txt ./
-# RUN pip install --no-cache-dir -r requirements.txt
-# COPY ./src/*.py ./
+# COPY main.py .
 
 # EXPOSE 5000
 

@@ -1,0 +1,6 @@
+pandas
+h2o
+scikit-learn
+matplotlib
+seaborn
+requests
