@@ -32,7 +32,7 @@ docker tag mi-docker:latest <server.azurecr.io>/mi-docker:latest
 docker push <server.azurecr.io>/mi-docker:latest
 ```
 
-# Usar nuestros docker en Data-Bricks
+[comment]: <> (# Usar nuestros docker en Data-Bricks)
 
 Podemos usar nuestro docker como base para el cluster de data bricks, ***esto nos permite instalar programas, librerias y drivers 
 en la imagen docker y no tener que usar un init_script cada vez que el cluster inicia***, para esto:
