@@ -20,6 +20,4 @@ COPY src /app
 
 EXPOSE 5000
 
-ENTRYPOINT ["python"]
-
-CMD ["run.py"]
+CMD ["python", "run.py"]
