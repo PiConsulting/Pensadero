@@ -19,10 +19,9 @@ Intentemos mantener el formato, esta organizado para que interprete bien el mark
 	
 	- Autor: nombre y apellido.
 	
-<pre><code>def tu_codigo_aca(args):
-	# Puede incluir comentarios
-	a = b
-	return a
-</code></pre>
-
----------------------
+``` python
+def tu_codigo_aca(args):
+    # Puede incluir comentarios
+    a, b = args
+    return a
+```
