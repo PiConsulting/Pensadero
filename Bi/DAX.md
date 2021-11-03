@@ -96,8 +96,8 @@ Para muchos mas ejemplos visitar: https://dax.guide/format/
 FORMAT( value, format, LocaleName(opcional) )
 
 Example:
-FORMAT( 0.42, "Percent" )  				  -- Devuelve 42.00%
-FORMAT( 0.42, "#,0.00%" )  				  -- Devuelve 42.00%
+FORMAT( 0.42, "Percent" )                 -- Devuelve 42.00%
+FORMAT( 0.42, "#,0.00%" )                 -- Devuelve 42.00%
 FORMAT( DATE( 1997, 1, 9 ), "yyy-mm-dd" ) -- Devuelve 1997-1-9
 
 ```
