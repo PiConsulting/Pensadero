@@ -91,7 +91,7 @@ IF(
 
 Converts a value to text in the specified number format.
 Returns a string containing Value formatted as defined by Format. The result is always a string, even when the value is blank.
-
+Para muchos mas ejemplos visitar: https://dax.guide/format/
 ```
 FORMAT( value, format, LocaleName(opcional) )
 
@@ -101,7 +101,7 @@ FORMAT( 0.42, "#,0.00%" )  				  -- Devuelve 42.00%
 FORMAT( DATE( 1997, 1, 9 ), "yyy-mm-dd" ) -- Devuelve 1997-1-9
 
 ```
-Para muchos mas ejemplos visitar: https://dax.guide/format/
+
 ---
 
 ### Clásicas de Fechas
