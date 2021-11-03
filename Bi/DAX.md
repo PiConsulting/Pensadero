@@ -63,6 +63,7 @@ CALCULATE(
 CALCULATE(
 	SUM(Table[Column1]),
 	( Table[Column2], Table[Column3] ) IN { ( "value1", "value2" ), ( "value1.2", "value2.2" ) }
+)
 ```
 
 **Obtener total independiente del calculo de filas**
