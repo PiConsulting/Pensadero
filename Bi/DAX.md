@@ -137,14 +137,14 @@ VAR _salestopn =
     )                                      -- donde [Product Name] IN { Productos pertenecientes a rank <= n }
 	
 VAR _totalsales =
-    CALCULATE(
+    CALCULATE(                             -- Aca calculamos el valor total de las ventas para todos los productos
         [Sales],
         ALL('Product'[Product Name] )
     )
 	
 VAR _result =
-    DIVIDE(
-        _salestop10,
+    DIVIDE(                                -- Luego realizamos la division entre las ventas top n y las totales
+        _salestopn,                        -- que nos dara como resultado lo que se llama Sales Top n Share
         _totalsales,
         0
     )
