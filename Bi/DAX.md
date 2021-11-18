@@ -109,41 +109,46 @@ Lo primero que haremos sera crear una medida con el ranking, esa es sencilla. En
 
 ```
 Rank Sales = 
-RANKX(
-    ALL( 'Product'[Product Name] ), 
-    [Sales]
-)
+	RANKX(
+		ALL( 'Product'[Product Name] ), 
+		[Sales]
+	)
 
 ```
 Luego crearemos una tabla "virtual" la cual contendra los nombres de productos, sus ventas y el ranking.
-Esta tabla se la pasaremos como parametro a un CALCULATE() para que calcule las ventas de la misma. Es decir a sales, lo calcularemos dentro de un contexto de filtro dado por esta tabla, que tengra el ranking de productos <= al numero deseado.
+Esta tabla se la pasaremos como parametro a un CALCULATE() para que calcule las ventas de la misma. Es decir a sales, lo calcularemos dentro de un contexto de filtro dado por esta tabla, que tenga el ranking de productos <= al numero deseado.
+El argumento que acepta CALCULATE es una table, o sea una lista de valores. La tabla provista como filtro define la lista de valores que van a ser visibles durante la evaluacion de la expresion. Es por esto que al pasarle como parametro la tabla "_ranktable", los unicos valores de Product Name visibles para la expresion, son aquellos que cumplen con la condicion Rank Sales <= n
 
 ```
 VAR _ranktable =
-FILTER(
-    ADDCOLUMNS(
-        ALL('Product'[Product Name]),      -- A la columna Product Name
-        "@sales", [Sales],                 -- Le agregamos las ventas por producto 
-        "@rank",  [Rank Sales]             -- Luego agregamos el Ranking
-    ),
-    [@rank] <= n                           -- Y filtramos la tabla que devuelve el ADDCOLUMNS para que contenga solo el ranking <= al nro deseado
-)
+	FILTER(
+		ADDCOLUMNS(
+			ALL('Product'[Product Name]),      -- A la columna Product Name
+			"@sales", [Sales],                 -- Le agregamos las ventas por producto 
+			"@rank",  [Rank Sales]             -- Luego agregamos el Ranking
+		),
+		[@rank] <= n                           -- Y filtramos la tabla que devuelve el ADDCOLUMNS para que contenga
+	)                                          -- solo el ranking <= al nro deseado
+
 VAR _salestopn =
     CALCULATE(
         [Sales],
-        _ranktable                         -- Le pasamos la tabla calculada al calculate para que calcule las ventas en ese contexto
-    )
+        _ranktable                         -- Le pasamos la tabla calculada al calculate para que calcule las ventas en ese contexto de filtro 
+    )                                      -- donde [Product Name] IN { Productos pertenecientes a rank <= n }
+	
 VAR _totalsales =
     CALCULATE(
         [Sales],
         ALL('Product'[Product Name] )
     )
+	
 VAR _result =
     DIVIDE(
         _salestop10,
         _totalsales,
         0
     )
+	
 RETURN
     _result
 	
