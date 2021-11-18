@@ -102,6 +102,53 @@ FORMAT( DATE( 1997, 1, 9 ), "yyy-mm-dd" ) -- Devuelve 1997-1-9
 
 ```
 
+**Top n % Share**
+
+Vamos a ver como calcular el share de un Ranking, que significa esto? Calcular por ejemplo el % que representa la venta de los 10 productos mas vendidos, por ejemplo... Pueden ser 10, 5, 3, lo que quieran.
+Lo primero que haremos sera crear una medida con el ranking, esa es sencilla. En el ejemplo lo haremos con los productos (Product Name) y sus ventas (Sales)
+
+```
+Rank Sales = 
+RANKX(
+    ALL( 'Product'[Product Name] ), 
+    [Sales]
+)
+
+```
+Luego crearemos una tabla "virtual" la cual contendra los nombres de productos, sus ventas y el ranking.
+Esta tabla se la pasaremos como parametro a un CALCULATE() para que calcule las ventas de la misma. Es decir a sales, lo calcularemos dentro de un contexto de filtro dado por esta tabla, que tengra el ranking de productos <= al numero deseado.
+
+```
+VAR _ranktable =
+FILTER(
+    ADDCOLUMNS(
+        ALL('Product'[Product Name]),      -- A la columna Product Name
+        "@sales", [Sales],                 -- Le agregamos las ventas por producto 
+        "@rank",  [Rank Sales]             -- Luego agregamos el Ranking
+    ),
+    [@rank] <= n                           -- Y filtramos la tabla que devuelve el ADDCOLUMNS para que contenga solo el ranking <= al nro deseado
+)
+VAR _salestopn =
+    CALCULATE(
+        [Sales],
+        _ranktable                         -- Le pasamos la tabla calculada al calculate para que calcule las ventas en ese contexto
+    )
+VAR _totalsales =
+    CALCULATE(
+        [Sales],
+        ALL('Product'[Product Name] )
+    )
+VAR _result =
+    DIVIDE(
+        _salestop10,
+        _totalsales,
+        0
+    )
+RETURN
+    _result
+	
+```
+
 ---
 
 ### Clásicas de Fechas
