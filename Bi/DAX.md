@@ -109,10 +109,10 @@ Lo primero que haremos sera crear una medida con el ranking, esa es sencilla. En
 
 ```
 Rank Sales = 
-	RANKX(
-		ALL( 'Product'[Product Name] ), 
-		[Sales]
-	)
+RANKX(
+    ALL( 'Product'[Product Name] ), 
+    [Sales]
+)
 
 ```
 Luego crearemos una tabla "virtual" la cual contendra los nombres de productos, sus ventas y el ranking.
@@ -121,14 +121,14 @@ El argumento que acepta CALCULATE es una table, o sea una lista de valores. La t
 
 ```
 VAR _ranktable =
-	FILTER(
-		ADDCOLUMNS(
-			ALL('Product'[Product Name]),      -- A la columna Product Name
-			"@sales", [Sales],                 -- Le agregamos las ventas por producto 
-			"@rank",  [Rank Sales]             -- Luego agregamos el Ranking
-		),
-		[@rank] <= n                           -- Y filtramos la tabla que devuelve el ADDCOLUMNS para que contenga
-	)                                          -- solo el ranking <= al nro deseado
+FILTER(
+    ADDCOLUMNS(
+        ALL('Product'[Product Name]),      -- A la columna Product Name
+        "@sales", [Sales],                 -- Le agregamos las ventas por producto 
+        "@rank",  [Rank Sales]             -- Luego agregamos el Ranking
+    ),
+    [@rank] <= n                           -- Y filtramos la tabla que devuelve el ADDCOLUMNS para que contenga
+)                                          -- solo el ranking <= al nro deseado
 
 VAR _salestopn =
     CALCULATE(
