@@ -117,7 +117,7 @@ RANKX(
 ```
 Luego crearemos una tabla "virtual" la cual contendra los nombres de productos, sus ventas y el ranking.
 Esta tabla se la pasaremos como parametro a un CALCULATE() para que calcule las ventas de la misma. Es decir a sales, lo calcularemos dentro de un contexto de filtro dado por esta tabla, que tenga el ranking de productos <= al numero deseado.
-El argumento que acepta CALCULATE es una table, o sea una lista de valores. La tabla provista como filtro define la lista de valores que van a ser visibles durante la evaluacion de la expresion. Es por esto que al pasarle como parametro la tabla "_ranktable", los unicos valores de Product Name visibles para la expresion, son aquellos que cumplen con la condicion Rank Sales <= n
+El argumento que acepta CALCULATE es una tabla, o sea una lista de valores. La tabla provista como filtro define la lista de valores que van a ser visibles durante la evaluacion de la expresion. Es por esto que al pasarle como parametro la tabla "_ranktable", los unicos valores de Product Name visibles para la expresion, son aquellos que cumplen con la condicion Rank Sales <= n
 
 ```
 VAR _ranktable =
