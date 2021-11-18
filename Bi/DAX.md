@@ -133,8 +133,8 @@ FILTER(
 VAR _salestopn =
     CALCULATE(
         [Sales],
-        _ranktable                         -- Le pasamos la tabla calculada al calculate para que calcule las ventas en ese contexto de filtro 
-    )                                      -- donde [Product Name] IN { Productos pertenecientes a rank <= n }
+        _ranktable                         -- Le pasamos la tabla calculada al calculate para que calcule las ventas en ese 
+    )                                      -- contexto de filtro donde [Product Name] IN { Productos pertenecientes a rank <= n }
 	
 VAR _totalsales =
     CALCULATE(                             -- Aca calculamos el valor total de las ventas para todos los productos
