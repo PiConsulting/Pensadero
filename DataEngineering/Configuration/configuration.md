@@ -619,3 +619,31 @@ La primera ip es la inicial, y la segunda es la del final del rango. Si se quier
 ```
 
 ---------------------
+
+**Crear usuario en Azure Synapse Sql Pool**
+
+	- Uso: necesario cuando queremos loguear al Sql Pool autenticando con usuario de BD, y no tenemos/queremos usar el sqladmin.
+
+	- Palabras clave: T-SQL, Azure, Synapse, Permisos.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita, en realidad lo cargo yo pero esta dando vueltas en Pi hace rato internamente.
+
+``` sql
+--Create login on master server
+CREATE LOGIN username WITH password='Pa$$'
+
+-- Create user in your DB
+CREATE USER username FROM LOGIN username
+
+-- Add the new user to the db_owner role and execute
+EXEC sp_addrolemember 'db_owner', 'username'
+
+-- Grant view database state permissions so we can use DMV's later
+GRANT VIEW DATABASE STATE TO username
+
+
+```
+
+---------------------
