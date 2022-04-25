@@ -24,12 +24,12 @@ Dado el siguiente modelo, queremos sumar el total de Gastos perteneciente a la t
 
 - La forma de relacionar la tabla **Presupuestos** con la tabla **Gastos vs Presupuestos** es mediante el campo **Cod**.
 
-![Foto modelo](capture.PNG)
+![Foto modelo](Capture.PNG)
 
 Una vez creadas las relaciones entre nuestras tablas, podemos utilizar una herramienta de visualización como lo es Microsoft Power BI para visualizar los campos en una tabla como en la siguiente imagen:
 
 
-![Foto Tabla](capture1.PNG)
+![Foto Tabla](Capture1.PNG)
 
 En esta tabla Arrastramos los siguientes campos:
 
@@ -79,12 +79,12 @@ CALCULATE (
 
 Con esto logramos relacionar los campos de las tablas izquierdas con la tabla **Gastos vs Presupuestos** 
 
-![Foto Tabla2](capture4.PNG)
+![Foto Tabla2](Capture4.PNG)
 
 Y una vez que coloquemos nuestras medidas en la tabla podremos visualizar correctamente la aplicación de nuestra relación bidireccional con DAX sin alterar nuestro modelo de datos:
 
 
-![Foto Tabla2](capture5.PNG)
+![Foto Tabla2](Capture5.PNG)
 
 
 **Se adjunta el archivo .PBIX en la presente Folder para poder probar**
