@@ -87,7 +87,7 @@ Y una vez que coloquemos nuestras medidas en la tabla podremos visualizar correc
 ![Foto Tabla2](Capture5.PNG)
 
 
-**Se adjunta el archivo .PBIX en la presente Folder para poder probar**
+**Se adjunta el archivo .PBIX de la resolución en la presente Folder**
 
 # Bibliografía
 
