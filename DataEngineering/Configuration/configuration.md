@@ -647,3 +647,33 @@ GRANT VIEW DATABASE STATE TO username
 ```
 
 ---------------------
+
+**Habilitar usuario Synapse Serverless Sql para leer un Data Lake**
+
+	- Uso: necesario cuando queremos leer una tabla delta con Sql Serverless en Synapse autenticando con usuario de BD.
+
+	- Palabras clave: T-SQL, Azure, Synapse, Permisos, Credential.
+
+	- Lenguaje: T-SQL.
+	
+	- Autor: Martin Zurita.
+
+``` sql
+--Este metodo requiere que el MSI de Synapse (un usuario de AD con el mismo nombre que el workspace, se crea solo) tenga permisos de Storage Blob Data Reader por lo menos sobre el data lake.
+
+--Crear master key para acceder a recursos externos
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'algunaPasswordSegura'
+
+-- Create user in your DB
+CREATE CREDENTIAL [https://<storageName>.dfs.core.windows.net/<Container>]
+WITH IDENTITY='Managed Identity'
+
+-- Este metodo tambien soporta SAS token, en caso de que el MSI no este autorizado
+CREATE CREDENTIAL [https://<storageName>.dfs.core.windows.net/<Container>]
+WITH IDENTITY='SHARED ACCESS SIGNATURE'
+, SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrkPBNJ3VYEIq78%3D'
+
+
+```
+
+---------------------
