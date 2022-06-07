@@ -664,7 +664,7 @@ GRANT VIEW DATABASE STATE TO username
 --Crear master key para acceder a recursos externos
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'algunaPasswordSegura'
 
--- Create user in your DB
+-- Creamos CREDENTIAL en la BD para que Synapse sepa como autenticarse contra el lake
 CREATE CREDENTIAL [https://<storageName>.dfs.core.windows.net/<Container>]
 WITH IDENTITY='Managed Identity'
 
