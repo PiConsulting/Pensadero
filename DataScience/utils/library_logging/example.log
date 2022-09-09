@@ -1,0 +1,18 @@
+DEBUG:root:A Debug Logging Message
+INFO:root:A Info Logging Message
+WARNING:root:A Warning Logging Message
+ERROR:root:An Error Logging Message
+CRITICAL:root:A Critical Logging Message
+WARNING:root:A Warning Logging Message :O
+DEBUG:root:A Debug Logging Message
+INFO:root:A Info Logging Message
+WARNING:root:A Warning Logging Message
+ERROR:root:An Error Logging Message
+CRITICAL:root:A Critical Logging Message
+WARNING:root:A Warning Logging Message :O
+DEBUG:root:A Debug Logging Message
+INFO:root:A Info Logging Message
+WARNING:root:A Warning Logging Message
+ERROR:root:An Error Logging Message
+CRITICAL:root:A Critical Logging Message
+WARNING:root:A Warning Logging Message :O
