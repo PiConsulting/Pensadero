@@ -677,3 +677,57 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 ```
 
 ---------------------
+
+**Escalar o desescalar la potencia de un Synapse SQL Pool**
+
+	- Uso: necesario cuando queremos el sql pool a potencia minima por algunas horas, o subirlo en horas de alta demanda.
+
+	- Palabras clave: Azure, Synapse, Warehouse, Sql Pool.
+
+	- Lenguaje: Powershell. Para usar con Azure Automation
+	
+	- Autor: Martin Zurita.
+
+``` powershell
+# Logueamos en Azure, para usar un Managed Identity (desde Azure Automation) solo agregamos -Identity al final
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId "SUB_ID" -Tenant "TENANT_ID"
+
+$rg = 'NOMBRE GRUPO DE RECURSOS'
+$ws = 'NOMBRE WORKSPACE SYNAPSE'
+$db = 'NOMBRE DEL SQL POOL'
+$nuevo_sku = "DW100c" #potencia a la que queremos llevar el SQL POOL
+
+#Capturar configuracion actual
+$sku = (Get-AzSynapseSqlPool -ResourceGroupName $rg -WorkspaceName $ws -Name $db).Sku
+
+
+#Informamos acciones
+Write-Output "Performance level actual: $($sku)"
+Write-Output "Intentando llevar a: $($nuevo_sku)"
+
+
+# Update
+Update-AzSynapseSqlPool -ResourceGroupName $rg -WorkspaceName $ws -Name $db -PerformanceLevel $nuevo_sku
+
+# Esperamos 10 segundos
+Start-Sleep 10
+
+# Capturamos status actual
+$status = (Get-AzSynapseSqlPool -ResourceGroupName $rg -WorkspaceName $ws -Name $db).Status
+
+#Loop de control
+while ($status -eq "Scaling"){
+    Write-Output "Status: $($status). Waiting 10 seconds..."
+    Start-Sleep 10
+    $status = (Get-AzSynapseSqlPool -ResourceGroupName $rg -WorkspaceName $ws -Name $db).Status
+}
+
+#Capturamos nueva configuracion
+$sku = (Get-AzSynapseSqlPool -ResourceGroupName $rg -WorkspaceName $ws -Name $db).Sku
+
+#Informamos configuracion actual
+Write-Output "Nuevo performance level: $($sku)"
+```
+
+---------------------
