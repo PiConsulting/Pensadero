@@ -1,3 +1,5 @@
+#Codigo Python puro (no PySpark) para convertir un nested json en un dataframe
+
 def pyth_flatten(df):
     # Determinar campos complejos (tipo = estructuras / arrays) del esquema json
     complex_fields = {}
