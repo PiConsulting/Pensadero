@@ -98,7 +98,7 @@ Desventajas:
 
 
  Microsoft Fabric ha sido un boom desde su anuncio en la última Microsoft Build y su posterior lanzamiento en preview para todo el mundo de la data. Está claro que contar con una herramienta de tal nivel en un contexto tecnológico desafiante y con la ayuda de la inteligencia artificial es realmente un avance muy grande en el desarrollo tecnológico. Para el Data analyst es una herramienta que viene a potenciar nuestras habilidades en el manejo de data debido a que, ya estamos acostumbrados a trabajar con plataformas integradas (cómo es el caso de Power BI) y por que estamos en constante actualización del negocio (por nuestro día a día con usuarios cada vez más exigentes) <br /> 
- Cabe destacar, que hace muchos años atrás, el rol que cumplen hoy los data scientist y los Data engineering lo ocupaba el Data analyst, de ahí puede que se compriman roles, que se expandan o que (lo más probable) se creen nuevos puestos en el mundo de data, todo es cuestión de seguir capacitandose y adaptandose a un mundo dónde la IA toma principal relevancia.
+ Cabe destacar, que hace muchos años atrás, el rol que cumplen hoy los data scientists y los Data engineers lo ocupaba el Data analyst, de ahí puede que se compriman roles, que se expandan o que (lo más probable) se creen nuevos puestos en el mundo de data, todo es cuestión de seguir capacitandose y adaptandose a un mundo dónde la IA toma principal relevancia.
 <br />
 
 # Bibliografía
