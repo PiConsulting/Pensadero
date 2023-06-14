@@ -85,6 +85,7 @@ Ventajas:
 * No es necesario crear recursos individuales en Azure para poder orquestar nuestro proceso en Data Factory.
 * La interfaz es muy interactiva y amigable para el usuario.
 * Permite que más usuarios no tan relacionados a la ingeniería de datos puedan colaborar en el desarrollo de pipelines de Data Factory en Fabric.
+* No sería necesario estar creando datasets ni linked services para los data sources.
 
 Desventajas:
 * Implementar de golpe Fabric en una compañía no sería algo muy acertado si la compañía tiene una estructurada consolidada en data. Sería provechoso iniciar ese camino de manera gradual.
