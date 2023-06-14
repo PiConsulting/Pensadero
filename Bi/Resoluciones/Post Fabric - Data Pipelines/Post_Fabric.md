@@ -89,7 +89,7 @@ Ventajas:
 Desventajas:
 * Implementar de golpe Fabric en una compañía no sería algo muy acertado si la compañía tiene una estructurada consolidada en data. Sería provechoso iniciar ese camino de manera gradual.
 * Si bien hay una estructura de niveles de acceso a usuarios en el portal de admin, es necesario definir a qué productos y que tipo de actividades podrá realizar cada usuario (Cómo en Power BI)
-* No se permite interactuar con más de un pipeline abierto en simultaneo. En Data Factory individual si se puede hacer.
+* No se permite interactuar con más de un pipeline abierto en simultáneo. En Data Factory individual si se puede hacer.
 ![Foto modelo](captura27.png) 
 <br /> 
 
