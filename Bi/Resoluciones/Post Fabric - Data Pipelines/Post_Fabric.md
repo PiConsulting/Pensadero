@@ -4,7 +4,7 @@ En este nuevo post estaremos navegando sobre funcionalidades de Fabric y en part
 
 
 Aclaraciones: <br />
-- *Fabric aún se encuenta en preview y en constante desarrollo. La versión utilizada probablemente no sea la definitiva.*
+- *Fabric aún se encuentra en preview y en constante desarrollo. La versión utilizada probablemente no sea la definitiva.*
 - *Fabric es un producto individual que podrá utilizarse como un recurso indepediente en Azure.*
 
 <br />
