@@ -61,7 +61,7 @@ Podemos revisar que el origen de la fuente es el mismo que configuramos.
 
 Revisamos que el destino de copia de data sea el correcto.
 
-![Foto modelo](captura35.png)
+![Foto modelo](captura36.png)
 
 Guardamos los cambios de igual manera que en Data Factory.
 
