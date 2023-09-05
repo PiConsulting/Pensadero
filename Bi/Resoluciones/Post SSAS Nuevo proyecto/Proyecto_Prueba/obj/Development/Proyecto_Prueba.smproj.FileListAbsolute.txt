@@ -1,0 +1,9 @@
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\bin\Model.asdatabase
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\bin\Model.deploymenttargets
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\bin\Model.deploymentoptions
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Proyecto_Prueba.smproj.AssemblyReference.cache
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Proyecto_Prueba.smproj.SuggestedBindingRedirects.cache
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Proyecto_Prueba.smproj.CoreCompileInputs.cache
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Model.asdatabase
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Model.deploymentoptions
+C:\Users\Fmontenegro\Desktop\Back up Notebook Pi\Investigaciones\Post SSAS Nuevo proyecto\Proyecto_Prueba\obj\Development\Model.deploymenttargets

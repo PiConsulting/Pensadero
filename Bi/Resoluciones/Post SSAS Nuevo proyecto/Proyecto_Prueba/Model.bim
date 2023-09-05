@@ -1,0 +1,67 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/mmgbsoaaasa01e3 sql azuresynapse net;SQLDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "mmgbsoaaasa01e3.sql.azuresynapse.net",
+            "database": "SQLDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "azuesqladmin",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "TestTable",
+        "columns": [
+          {
+            "name": "col1",
+            "dataType": "int64",
+            "sourceColumn": "col1"
+          },
+          {
+            "name": "col2",
+            "dataType": "int64",
+            "sourceColumn": "col2"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/mmgbsoaaasa01e3 sql azuresynapse net;SQLDW\",",
+                "    dbo_TestTable = Source{[Schema=\"dbo\",Item=\"TestTable\"]}[Data]",
+                "in",
+                "    dbo_TestTable"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
