@@ -1,7 +1,7 @@
 # SSAS - Cómo empezar un nuevo proyecto? 
 
 
-Muchas veces me han preguntado cómo iniciar un proyecto en SSAS y luego conectarlo a Power BI? Qué es SSAS? Cómo se crea un nuevo proyecto? Que diferencias tiene crear un proyecto en SSAS y no directamente Power BI Desktop? Lo veremos paso a paso con ejemplos sencillos.
+Muchas veces me han preguntado cómo iniciar un proyecto en SSAS y luego conectarlo a Power BI? Qué es SSAS? Cómo se crea un nuevo proyecto? Que diferencias tiene crear un proyecto en SSAS y no directamente en Power BI Desktop? Lo veremos paso a paso con ejemplos sencillos.
 
 
 Consideraciones:<br />
