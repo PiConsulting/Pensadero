@@ -164,5 +164,7 @@ https://www.javatpoint.com/sql-copy-table
 
 https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-sql-tutorial
 
+https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms
+
 ---
 By **Facundo Montenegro**
