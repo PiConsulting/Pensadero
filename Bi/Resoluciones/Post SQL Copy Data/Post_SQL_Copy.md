@@ -33,7 +33,7 @@ Podemos hacer un Select sencillo para ver los datos que posee creando una New Qu
 
 *Cómo sería el procedimiento si queremos copiar estos datos en una tabla nueva?* Veamos. Primero debemos crear una nueva tabla que posea **Exactamente** los mismos campos que la tabla *[dbo].[FactInternetSales]*.
 
-Ejecutamos el siguiente Script para crear nuesta tabla de copia:
+Ejecutamos el siguiente Script para crear nuestra tabla de copia:
 
 <pre><code>
 CREATE TABLE [dbo].[FactInternetSales_Copy](
