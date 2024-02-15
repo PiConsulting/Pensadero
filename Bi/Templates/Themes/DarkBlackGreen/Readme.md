@@ -3,4 +3,4 @@ Developed by Florencia Casa
 
 ---
 
-![Dashboard Ejemplo](Dashboard.png)
+![Dashboard Ejemplo](Dashboard.PNG)
