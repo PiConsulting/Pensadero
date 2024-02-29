@@ -1,0 +1,121 @@
+﻿{
+    "name": "FlorTheme",
+    "dataColors": [
+        "#6DEECE",
+        "#51BFA3",
+        "#19423F",
+        "#59A472",
+        "#0F3A69",
+        "#2C5D51",
+        "#0B2623",
+        "#59A472",
+        "#3599B8",
+        "#DFBFBF",
+        "#4AC5BB",
+        "#5F6B6D",
+        "#FB8281",
+        "#F4D25A",
+        "#7F898A",
+        "#A4DDEE",
+        "#FDAB89",
+        "#B687AC",
+        "#28738A",
+        "#A78F8F",
+        "#168980",
+        "#293537",
+        "#BB4A4A",
+        "#B59525",
+        "#475052",
+        "#6A9FB0",
+        "#BD7150",
+        "#7B4F71",
+        "#1B4D5C",
+        "#706060",
+        "#0F5C55",
+        "#1C2325"
+    ],
+    "foreground": "#4DA48E",
+    "background": "#FFFFFF",
+    "foregroundNeutralSecondary": "#DFDFDF",
+    "backgroundLight": "#E5E0DA",
+    "foregroundNeutralTertiary": "#ABA7A2",
+    "backgroundNeutral": "#C6C2BE",
+    "tableAccent": "#4E9466",
+    "maximum": "#0B2F54",
+    "center": "#59A472",
+    "minimum": "#6DEECE",
+    "bad": "#0F3D6E",
+    "neutral": "#6DEECE",
+    "good": "#46835A",
+    "textClasses": {
+        "label": {
+            "color": "#F11717",
+            "fontSize": 11
+        },
+        "callout": {
+            "color": "#FFFFFF",
+            "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+            "fontSize": 11
+        },
+        "title": {
+            "color": "#6DEECE",
+            "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif"
+        },
+        "header": {
+            "color": "#F01111"
+        }
+    },
+    "visualStyles": {
+        "*": {
+            "*": {
+                "background": [
+                    {
+                        "transparency": 100
+                    }
+                ],
+                "visualTooltip": [
+                    {
+                        "titleFontColor": {
+                            "solid": {
+                                "color": "#6DEECE"
+                            }
+                        }
+                    }
+                ],
+                "visualHeaderTooltip": [
+                    {
+                        "titleFontColor": {
+                            "solid": {
+                                "color": "#6DEECE"
+                            }
+                        }
+                    }
+                ],
+                "outspacePane": [
+                    {
+                        "transparency": 100
+                    }
+                ]
+            }
+        },
+        "page": {
+            "*": {
+                "background": [
+                    {
+                        "color": {
+                            "solid": {
+                                "color": "#0F1011"
+                            }
+                        },
+                        "transparency": 0
+                    }
+                ],
+                "outspace": [
+                    {
+                        "transparency": 100
+                    }
+                ]
+            }
+        }
+    }
+}
