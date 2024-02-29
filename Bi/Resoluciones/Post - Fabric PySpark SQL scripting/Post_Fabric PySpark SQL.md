@@ -1,4 +1,4 @@
-# Fabric - Como trabajar con notebooks en PySpark SQL
+# Fabric - Cómo trabajar con notebooks en PySpark SQL?
 
 
 En este post estaremos trabajando con un archivo .CSV como un dataframe y le aplicaremos transformaciones SQL, finalmente, lo guardaremos como una tabla Delta usando un ejemplo sencillo.
