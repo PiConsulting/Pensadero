@@ -1,9 +1,0 @@
-{
-  "version": "4.0",
-  "datasetReference": {
-    "byPath": {
-      "path": "../Covid-19.SemanticModel"
-    },
-    "byConnection": null
-  }
-}
