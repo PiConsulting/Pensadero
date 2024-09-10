@@ -1,6 +1,6 @@
 # Fabric - Integración PBI con Azure DevOps usando GIT
 
-Hace varios meses se generó una gran revolución en el mundo de la data con la aparición de Fabric como una plataforma integral para el desarrollo de proyectos combinando múltiples tecnologías Microsoft, pero hace unos pocos meses se generó algo totalmente disruptivo: Su integración con Git. Ahora los Analistas de BI son DEVs? Los Data Engineer también son DEVs? Qué sucede con DS?
+Hace varios meses se generó una gran revolución en el mundo de la data con la aparición de Fabric como una plataforma integral para el desarrollo de proyectos combinando múltiples tecnologías Microsoft, pero hace unos pocos meses se generó algo totalmente disruptivo: El versionado de código con Git. Ahora los Analistas de BI son DEVs? Los Data Engineer también son DEVs? Qué sucede con DS?
 
 En este post veremos como utilizar Fabric integrado a Azure DevOps realizando versionados de nuestro código con un reporte de PBI y con un ejemplo sencillo. 
 
