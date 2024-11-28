@@ -1,4 +1,4 @@
-# Delta Tables - Importar Delta Tables de Databricks en Power BI  - Parte 1 
+# Delta Tables - Importar Delta Tables de Databricks en Power BI  - Parte 2 
 
 Hace tiempo se viene utilizando el delta lake como formato de almacenamiento y capa de gestión de transacciones reemplazando al antiguo Apache parquet, si bien tienen similitudes, no son lo mismo.
 
