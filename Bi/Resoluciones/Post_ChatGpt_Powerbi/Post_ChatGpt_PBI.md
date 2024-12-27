@@ -234,7 +234,7 @@ Una vez ingresado el server, seleccionamos la tabla que necesitaremos, en nuestr
 
 ![Foto modelo](captura19.png)
 
-Ahora sí! con nustros datos importados, Podemos utilizarlos para hacer analítica descriptiva en Power BI, por ejemplo, con un Wordcloud de las preguntas más frecuentes:
+Ahora sí! con nuestros datos importados, Podemos utilizarlos para hacer analítica descriptiva en Power BI, por ejemplo, con un Wordcloud de las preguntas más frecuentes:
 
 ![Foto modelo](captura20.png)
 
